@@ -14,14 +14,12 @@ async function main(){
         
             document.querySelector(".serverList").insertAdjacentHTML("afterbegin",
                 data.data.reverse().map(server=>{
-                    console.log(JSON.stringify(server.id));
                     const guild = res.data[server.id];
-                    console.log(JSON.stringify(guild));
         
                     return `<div class="col-sm-6 Server">
                         <div class="card text-center">
                             <div class="card-body">
-                                <h5 class="card-title" id=${server.id}>${guild.name} - ${guild.memberCount}人</h5>
+                                <h5 class="card-title" id=${server.id}>${guild.name} - ${guild.memberCount}人${server.id==="987698915820335124"?"(認証済み)":""}</h5>
                                 <p class="card-text">${server.text}</p>
                                 <a href="https://discord.gg/${server.code}" class="btn btn-secondary" target="_blank">サーバーに参加</a>
                                 <p class="card-text"><small class="text-muted">${time(new Date() - new Date(server.time))}前</small></p>
