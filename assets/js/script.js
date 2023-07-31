@@ -10,7 +10,7 @@ async function main(){
 
     document.querySelector(".serverList").insertAdjacentHTML("afterbegin",
         data.data.reverse().map(server=>{
-        return `<div class="col-sm-4 Server">
+        return `<div class="col-sm-6 Server">
             <div class="card text-center">
                 <div class="card-body">
                     <h5 class="card-title" id=${server.id}>${server.name} - ${server.members}人</h5>
