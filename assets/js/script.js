@@ -10,17 +10,18 @@ async function main(){
 
     document.querySelector(".serverList").insertAdjacentHTML("afterbegin",
         data.data.reverse().map(server=>{
-        return `<div class="col-sm-6 Server">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title" id=${server.id}>${server.name} - ${server.members}人</h5>
-                    <p class="card-text">${server.text}</p>
-                    <a href="https://discord.gg/${server.code}" class="btn btn-secondary" target="_blank">サーバーに参加</a>
-                    <p class="card-text"><small class="text-muted">${time(new Date() - new Date(server.time))}前</small></p>
+            return `<div class="col-sm-6 Server">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title" id=${server.id}>${server.name} - ${server.members}人</h5>
+                        <p class="card-text">${server.text}</p>
+                        <a href="https://discord.gg/${server.code}" class="btn btn-secondary" target="_blank">サーバーに参加</a>
+                        <p class="card-text"><small class="text-muted">${time(new Date() - new Date(server.time))}前</small></p>
+                    </div>
                 </div>
-            </div>
-        </div> `
-    }).join(""));
+            </div> `;
+        }).join("")
+    );
 }
 
 function time(ms){  
