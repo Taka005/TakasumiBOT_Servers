@@ -13,22 +13,23 @@ async function main(){
             alert(`サーバー情報を取得出来ませんでした\n\nエラーコード: ${error}`);
         });
 
+    console.log(`${guilds.data.length}個のサーバー情報を取得しました`);
 
-  console.log(`${data.data.length}個のサーバーを取得しました`);
+    console.log(`${data.data.length}個のサーバーを取得しました`);
 
-  document.querySelector(".serverList").insertAdjacentHTML('afterbegin',
-    data.data.reverse().map(server=>{
-    return `<div class="col-sm-4 Server">
-        <div class="card text-center">
-            <div class="card-body">
-                <h5 class="card-title">${server.id}</h5>
-                <p class="card-text">${server.text}</p>
-                <a href="https://discord.gg/${server.code}" class="btn btn-secondary" target="_blank">サーバーに参加</a>
-                <p class="card-text"><small class="text-muted">${time(new Date() - new Date(server.time))}前</small></p>
+    document.querySelector(".serverList").insertAdjacentHTML('afterbegin',
+        data.data.reverse().map(server=>{
+        return `<div class="col-sm-4 Server">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">${server.id}</h5>
+                    <p class="card-text">${server.text}</p>
+                    <a href="https://discord.gg/${server.code}" class="btn btn-secondary" target="_blank">サーバーに参加</a>
+                    <p class="card-text"><small class="text-muted">${time(new Date() - new Date(server.time))}前</small></p>
+                </div>
             </div>
-        </div>
-    </div> `
-  }).join(""));
+        </div> `
+    }).join(""));
 }
 
 function time(ms){  
