@@ -1,3 +1,8 @@
+const official = [
+    "987698915820335124",
+    "942268307795492864"
+]
+
 async function main(){
     const data = await fetch("https://api.taka.cf/v1/server")
         .then(res=>res.json())
@@ -21,7 +26,7 @@ async function main(){
     document.querySelector(".serverList").insertAdjacentHTML("afterbegin",
         data.data.map(server=>{
             const guild = guilds.data[server.id];
-            const check = server.id === "987698915820335124"?`<span class="badge rounded-pill bg-success">公式</span>`:"";
+            const check = official.find(id=>id === server.id)?`<span class="badge rounded-pill bg-success">公式</span>`:"";
 
             return `<div class="col-sm-6 Server">
                 <div class="card text-center">
@@ -53,7 +58,7 @@ async function main(){
                 data.data.map(server=>{
                     if(filter.find(g=>g[0] === server.id)){
                         const guild = filter.find(g=>g[0] === server.id)[1];
-                        const check = server.id === "987698915820335124"?`<span class="badge rounded-pill bg-success">公式</span>`:"";
+                        const check = official.find(id=>id === server.id)?`<span class="badge rounded-pill bg-success">公式</span>`:"";
             
                         return `<div class="col-sm-6 Server">
                             <div class="card text-center">
@@ -74,7 +79,7 @@ async function main(){
             document.querySelector(".serverList").insertAdjacentHTML("afterbegin",
                 data.data.map(server=>{
                     const guild = guilds.data[server.id];
-                    const check = server.id === "987698915820335124"?`<span class="badge rounded-pill bg-success">公式</span>`:"";
+                    const check = official.find(id=>id === server.id)?`<span class="badge rounded-pill bg-success">公式</span>`:"";
 
                     return `<div class="col-sm-6 Server">
                         <div class="card text-center">
