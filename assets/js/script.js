@@ -5,6 +5,7 @@ async function main(){
             console.error(error);
             alert(`サーバーを取得出来ませんでした\n\nエラーコード: ${error}`);
         });
+
     data.data.reverse();
 
     const guilds = await fetch("https://api.taka.cf/v1/discord/guilds")
