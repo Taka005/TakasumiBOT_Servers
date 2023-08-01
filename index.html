@@ -29,12 +29,13 @@
         </header>
 	    <main>
             <div class="container">
-                <div class="form"> 
+                <form id="serverForm"> 
                     <div class="input-group mb-3">
                         <input type="text" class="form-control form-control-lg" placeholder="サーバーを検索" id="serverInput">
                         <button type="submit" class="btn btn-lg btn-secondary" id="serverButton">検索</button>
+                        <div id="result" class="form-text"></div>
                     </div>
-                </div>
+                </form>
                 <div class="serverList row"></div>
             </div>
 	    </main>
