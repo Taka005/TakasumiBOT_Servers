@@ -101,19 +101,25 @@ async function main(){
 
 main();
 
-function time(ms){  
+function time(ms){
     const t = Math.round(ms / 1000);
-    const h = Math.floor(t / 3600);
-    const m = Math.floor((t - h * 3600) / 60);
-    const s = Math.floor(t - h * 3600 - m * 60);
+    const d = Math.floor(t / 86400);
+    const h = Math.floor((t - d * 86400) / 3600);
+    const m = Math.floor((t - d * 86400 - h * 3600) / 60);
+    const s = Math.floor(t - d * 86400 - h * 3600 - m * 60);
   
-    if(h === 0){
-        if(m === 0){
-            return `${s}秒`;
+    if(d === 0){
+        if(h === 0){
+            if(m === 0){
+                return `${s}秒`;
+            }else{
+                return `${m}分`;
+            }
         }else{
-            return `${m}分`;
+            return `${h}時間`;
         }
     }else{
-        return `${h}時間`;
+        return `${d}日`;
     }
-}
+  }
+  
