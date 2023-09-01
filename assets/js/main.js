@@ -13,12 +13,15 @@
         data.data.map(server=>{
             const check = "987698915820335124" === server.id?`<span class="badge rounded-pill bg-success">公式</span>`:"";
 
-            return `<div class="col-sm-6 Server">
+            return `<div class="col-sm-6 Server" id=${server.id}>
                 <div class="card text-center">
                     <div class="card-body">
-                        <h5 class="card-title" id=${server.id}>${escape(server.name)} ${check}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">- ${server.count}人 -</h6>
-                        <p class="card-text">${escape(server.text)}</p>
+                        <div class="serverLink">
+                            <h5 class="card-title">${escape(server.name)} ${check}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">- ${server.count}人 -</h6>
+                            <p class="card-text">${escape(server.text)}</p>
+                            <a href="./server.html?id=${server.id}"></a>
+                        </div>
                         <a href="https://discord.gg/${server.code}" class="btn btn-outline-secondary" target="_blank">サーバーに参加する</a>
                         <p class="card-text"><small class="text-muted">${time(new Date() - new Date(server.time))}前</small></p>
                     </div>
@@ -43,10 +46,10 @@
                 filter.map(server=>{
                     const check = "987698915820335124" === server.id?`<span class="badge rounded-pill bg-success">公式</span>`:"";
         
-                    return `<div class="col-sm-6 Server">
+                    return `<div class="col-sm-6 Server" id=${server.id}>
                         <div class="card text-center">
                             <div class="card-body">
-                                <h5 class="card-title" id=${server.id}>${escape(server.name)} ${check}</h5>
+                                <h5 class="card-title">${escape(server.name)} ${check}</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">- ${server.count}人 -</h6>
                                 <p class="card-text">${escape(server.text)}</p>
                                 <a href="https://discord.gg/${server.code}" class="btn btn-outline-secondary" target="_blank">サーバーに参加する</a>
@@ -62,10 +65,10 @@
                 data.data.map(server=>{
                     const check = "987698915820335124" === server.id?`<span class="badge rounded-pill bg-success">公式</span>`:"";
 
-                    return `<div class="col-sm-6 Server">
+                    return `<div class="col-sm-6 Server" id=${server.id}>
                         <div class="card text-center">
                             <div class="card-body">
-                                <h5 class="card-title" id=${server.id}>${escape(server.name)} ${check}</h5>
+                                <h5 class="card-title">${escape(server.name)} ${check}</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">- ${server.count}人 -</h6>
                                 <p class="card-text">${escape(server.text)}</p>
                                 <a href="https://discord.gg/${server.code}" class="btn btn-outline-secondary" target="_blank">サーバーに参加する</a>
