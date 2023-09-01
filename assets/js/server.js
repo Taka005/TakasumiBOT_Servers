@@ -11,7 +11,7 @@
     console.log(`${data.data.length}個のサーバーを取得しました`);
 
     const server = servers.find(server=>server.id === params.get("id"));
-    if(!server[0]) return window.location = "./";
+    if(!server) return window.location = "./";
 
     const guild = await fetch(`https://api.taka.cf/v1/discord/guild?id=${server.id}`)
         .then(res=>res.json())
