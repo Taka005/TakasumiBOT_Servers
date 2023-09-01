@@ -8,6 +8,8 @@ const servers = await fetch("https://api.taka.cf/v1/server")
         console.log(error);
     });
 
+    console.log(`${data.data.length}個のサーバーを取得しました`);
+
 const server = servers.find(server=>server.id === params.get("id"));
 if(!server[0]) return window.location = "./";
 
@@ -17,4 +19,6 @@ const guild = await fetch(`https://api.taka.cf/v1/discord/guild?id=${server.id}`
         console.log(error);
     });
 
-document.querySelector("title").innerText = guild.name;
+    console.log(`${guild.data.name}(${guild.data.id})を取得しました`);
+
+document.querySelector("title").innerText = guild.data.name;
