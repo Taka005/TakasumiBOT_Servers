@@ -9,3 +9,8 @@
     width: 150px;
     height: 150px;
 }
+
+.badge-danger {
+    background-color: #FFF000;
+    color: #FFFFFF;
+}
