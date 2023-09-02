@@ -25,6 +25,10 @@
     margin-right: 200px;
 }
 
+.card {
+    display: flex;
+}
+
 .card div {
     float: left; 
     margin: 10px;
