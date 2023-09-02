@@ -14,6 +14,12 @@
     const serverForm = document.getElementById("serverForm");
     const serverInput = document.getElementById("serverInput");
 
+    const params = new URLSearchParams(window.location.search);
+    if(params.has("q")){
+        serverInput.value = params.get("q");
+        serverForm.submit();
+    }
+
     serverForm.addEventListener("submit",async(event)=>{
         event.preventDefault();
         
