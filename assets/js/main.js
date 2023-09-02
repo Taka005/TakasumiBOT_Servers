@@ -42,7 +42,7 @@
             let filter;
             if(serverInput.value.match(/#[^\s#]+/)?.[0]){
                 filter = data.data.filter(server=>{
-                    console.log(server.text.match(/#[^\s#]+/g))
+                    if(!server.text.match(/#[^\s#]+/g)) return false;
                     return server.text.match(/#[^\s#]+/g)
                       .map(tag=>tag.trim())
                       .find(tag=>tag.indexOf(serverInput.value.match(/#[^\s#]+/g)[0].trim()))
