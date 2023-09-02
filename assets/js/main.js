@@ -40,7 +40,8 @@
         
         if(serverInput.value.length > 0){
             let filter;
-            if(serverInput.value.match(/#[^\s#]+/g).length > 0){
+            console.log(serverInput.value.match(/#[^\s#]+/g))
+            if(serverInput.value.match(/#[^\s#]+/g)[0]){
                 filter = data.data.filter(server=>{
                     return server.text.match(/#[^\s#]+/g)
                       .map(tag=>tag.trim())
