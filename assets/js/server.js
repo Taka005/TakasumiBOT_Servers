@@ -42,13 +42,17 @@
                         ${guild.data.nitro !== 0 ? `<span class="badge rounded-pill bg-danger nitro">${guild.data.nitro}ブースト</span>`:""}
                     </h5>
                 </p>
-                <p class="card-text">${escape(server.text)}</p>
+                <p class="card-text">${tag(escape(server.text))}</p>
                 <a href="https://discord.gg/${server.code}" class="btn btn-lg btn-outline-secondary" target="_blank">サーバーに参加する</a>
                 <p class="card-text"><small class="text-muted">${time(new Date() - new Date(server.time))}前</small></p>
             </div>
         </div>
     `)
 })();
+
+function tag(str){
+    return str.replace(/#[^\s#]+/g,"<h6>$&</h6>");
+}
 
 function escape(str){
     return str.replace(/[&'"<>]/g,(m)=>({

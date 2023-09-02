@@ -13,9 +13,9 @@
     const serverInput = document.getElementById("serverInput");
 
     const params = new URLSearchParams(window.location.search);
-    if(params.has("q")){
+    if(params.get("q").length > 0){
         serverInput.value = params.get("q");
-        document.serverForm.submit();
+        serverForm.submit();
     }else{
         ServerList(data.data);
     }
