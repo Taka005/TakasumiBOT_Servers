@@ -34,6 +34,8 @@
     const serverInput = document.getElementById("serverInput");
 
     serverForm.addEventListener("submit",async(event)=>{
+        if(!serverInput.value) return;
+        
         event.preventDefault();
         document.querySelector(".serverList").innerHTML = "";
         document.querySelector("#result").remove();
