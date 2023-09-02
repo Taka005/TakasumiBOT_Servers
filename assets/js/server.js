@@ -44,7 +44,7 @@
                 </p>
                 <p class="card-text">${escape(server.text)}</p>
                 <a href="https://discord.gg/${server.code}" class="btn btn-lg btn-outline-secondary" target="_blank">サーバーに参加する</a>
-                <p class="card-text"><small class="text-muted">${time(new Date() - new Date(server.time))}分前</small></p>
+                <p class="card-text"><small class="text-muted">${time(new Date() - new Date(server.time))}前</small></p>
             </div>
         </div>
     `)
