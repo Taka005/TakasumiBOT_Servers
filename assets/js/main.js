@@ -9,11 +9,28 @@
 
     console.log(`${data.data.length}個のサーバーを取得しました`);
 
-    ServerList(data.data);
-
     const serverForm = document.getElementById("serverForm");
     const serverInput = document.getElementById("serverInput");
 
+    const params = new URLSearchParams(window.location.search);
+    if(params.has("q")&&params.get("q").length > 0){
+        let filter;
+        if(params.get("q").match(/#[^\s#]+/)?.[0]){
+            filter = data.data.filter(server=>{
+                if(!server.text.match(/#[^\s#]+/g)) return false;
+                return server.text.match(/#[^\s#]+/g)
+                  .map(tag=>tag.trim())
+                  .find(tag=>tag.startsWith(params.get("q").match(/#[^\s#]+/)[0].trim()))
+            });
+        }else{
+            filter = data.data.filter(server=>server.name.indexOf(params.get("q")) != -1);
+        }
+
+        serverForm.insertAdjacentHTML("beforeend",`<div id="result" class="form-text">${filter.length}件ヒットしました</div>`)
+        ServerList(filter);
+    }else{
+        ServerList(data.data);
+    }
     serverForm.addEventListener("submit",async(event)=>{
         event.preventDefault();
         
