@@ -45,7 +45,7 @@
                     if(!server.text.match(/#[^\s#]+/g)) return false;
                     return server.text.match(/#[^\s#]+/g)
                       .map(tag=>tag.trim())
-                      .find(tag=>tag.indexOf(serverInput.value.match(/#[^\s#]+/g)[0].trim()))
+                      .find(tag=>tag.startsWith(serverInput.value.match(/#[^\s#]+/g)[0].trim()))
                 });
             }else{
                 filter = data.data.filter(server=>server.name.indexOf(serverInput.value) != -1);
