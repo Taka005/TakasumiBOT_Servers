@@ -9,15 +9,15 @@
 
     console.log(`${data.data.length}個のサーバーを取得しました`);
 
-    ServerList(data.data);
-
     const serverForm = document.getElementById("serverForm");
     const serverInput = document.getElementById("serverInput");
 
     const params = new URLSearchParams(window.location.search);
     if(params.has("q")){
         serverInput.value = params.get("q");
-        serverForm.submit();
+        document.serverForm.submit();
+    }else{
+        ServerList(data.data);
     }
 
     serverForm.addEventListener("submit",async(event)=>{
