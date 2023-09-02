@@ -19,20 +19,18 @@
 }
 
 .serverInfo {
-    display: flex;
     margin-top: 100px;
     margin-left: 200px;
     margin-right: 200px;
 }
 
-.serverInfo .icon,
 .serverInfo div {
-    flex: 1;
+    float: left; 
     margin: 10px;
 }
 
 .icon {
     border-radius: 20%;
     width: 150px;
-    height: 150px; 
+    height: 150px;
 }
