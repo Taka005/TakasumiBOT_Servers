@@ -9,8 +9,43 @@
 
     console.log(`${data.data.length}個のサーバーを取得しました`);
 
+    ServerList(data.data);
+
+    const serverForm = document.getElementById("serverForm");
+    const serverInput = document.getElementById("serverInput");
+
+    serverForm.addEventListener("submit",async(event)=>{
+        event.preventDefault();
+        
+        document.querySelector(".serverList").innerHTML = "";
+        document.querySelector("#result").remove();
+        
+        if(serverInput.value.length > 0){
+            let filter;
+            if(serverInput.value.match(/#[^\s#]+/)?.[0]){
+                filter = data.data.filter(server=>{
+                    if(!server.text.match(/#[^\s#]+/g)) return false;
+                    return server.text.match(/#[^\s#]+/g)
+                      .map(tag=>tag.trim())
+                      .find(tag=>tag.startsWith(serverInput.value.match(/#[^\s#]+/)[0].trim()))
+                });
+            }else{
+                filter = data.data.filter(server=>server.name.indexOf(serverInput.value) != -1);
+            }
+
+            serverForm.insertAdjacentHTML("beforeend",`<div id="result" class="form-text">${filter.length}件ヒットしました</div>`)
+            ServerList(filter);            
+        }else{
+            serverForm.insertAdjacentHTML("beforeend",`<div id="result" class="form-text"></div>`)
+            ServerList(data.data);
+        }
+        serverInput.value = "";
+    });
+})();
+
+function ServerList(data){
     document.querySelector(".serverList").insertAdjacentHTML("afterbegin",
-        data.data.map(server=>{
+        data.map(server=>{
             const check = "987698915820335124" === server.id?`<span class="badge rounded-pill bg-success">公式</span>`:"";
 
             return `<div class="col-sm-6 Server" id=${server.id}>
@@ -29,75 +64,7 @@
             </div> `;
         }).join("")
     );
-
-    const serverForm = document.getElementById("serverForm");
-    const serverInput = document.getElementById("serverInput");
-
-    serverForm.addEventListener("submit",async(event)=>{
-        event.preventDefault();
-        document.querySelector(".serverList").innerHTML = "";
-        document.querySelector("#result").remove();
-        
-        if(serverInput.value.length > 0){
-            let filter;
-            if(serverInput.value.match(/#[^\s#]+/)?.[0]){
-                filter = data.data.filter(server=>{
-                    if(!server.text.match(/#[^\s#]+/g)) return false;
-                    return server.text.match(/#[^\s#]+/g)
-                      .map(tag=>tag.trim())
-                      .find(tag=>tag.startsWith(serverInput.value.match(/#[^\s#]+/g)[0].trim()))
-                });
-            }else{
-                filter = data.data.filter(server=>server.name.indexOf(serverInput.value) != -1);
-            }
-
-            serverForm.insertAdjacentHTML("beforeend",`<div id="result" class="form-text">${filter.length}件ヒットしました</div>`)
-            document.querySelector(".serverList").insertAdjacentHTML("afterbegin",
-                filter.map(server=>{
-                    const check = "987698915820335124" === server.id?`<span class="badge rounded-pill bg-success">公式</span>`:"";
-        
-                    return `<div class="col-sm-6 Server" id=${server.id}>
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <div class="serverLink">
-                                    <h5 class="card-title">${escape(server.name)} ${check}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">- ${server.count}人 -</h6>
-                                    <p class="card-text">${escape(server.text)}</p>
-                                    <a href="./server.html?id=${server.id}"></a>
-                                </div>
-                                <a href="https://discord.gg/${server.code}" class="btn btn-outline-secondary" target="_blank">サーバーに参加する</a>
-                                <p class="card-text"><small class="text-muted">${time(new Date() - new Date(server.time))}前</small></p>
-                            </div>
-                        </div>
-                    </div> `;
-                }).join("")
-            );
-        }else{
-            serverForm.insertAdjacentHTML("beforeend",`<div id="result" class="form-text"></div>`)
-            document.querySelector(".serverList").insertAdjacentHTML("afterbegin",
-                data.data.map(server=>{
-                    const check = "987698915820335124" === server.id?`<span class="badge rounded-pill bg-success">公式</span>`:"";
-
-                    return `<div class="col-sm-6 Server" id=${server.id}>
-                        <div class="card text-center">
-                            <div class="card-body">
-                                <div class="serverLink">
-                                    <h5 class="card-title">${escape(server.name)} ${check}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">- ${server.count}人 -</h6>
-                                    <p class="card-text">${escape(server.text)}</p>
-                                    <a href="./server.html?id=${server.id}"></a>
-                                </div>
-                                <a href="https://discord.gg/${server.code}" class="btn btn-outline-secondary" target="_blank">サーバーに参加する</a>
-                                <p class="card-text"><small class="text-muted">${time(new Date() - new Date(server.time))}前</small></p>
-                            </div>
-                        </div>
-                    </div> `;
-                }).join("")
-            );
-        }
-        serverInput.value = "";
-    });
-})();
+}
 
 function time(ms){
     const t = Math.round(ms / 1000);
