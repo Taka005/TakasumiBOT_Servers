@@ -1,7 +1,7 @@
 .serverInfo {
     margin-top: 100px;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .icon {
@@ -11,6 +11,10 @@
 }
 
 .bg-danger {
-    background-color: #FFF000;
+    background-color: #f47fff;
     color: #FFFFFF;
+}
+
+a {
+    text-decoration: none;
 }
