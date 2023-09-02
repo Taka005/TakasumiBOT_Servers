@@ -4,15 +4,6 @@
     margin-right: 200px;
 }
 
-.header {
-    display: flex;
-}
-
-.header div {
-    float: left; 
-    margin: 10px;
-}
-
 .icon {
     border-radius: 20%;
     width: 150px;
