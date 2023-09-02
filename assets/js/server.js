@@ -39,7 +39,7 @@
                 <p class="card-text">
                     <h5>
                         <span class="badge rounded-pill bg-light text-dark">${guild.data.onlineCount}がオンライン ${guild.data.memberCount}人</span>
-                        <span class="badge rounded-pill bg-danger">${guild.data.nitro}ブースト</span>
+                        ${guild.data.nitro !== 0 ? `<span class="badge rounded-pill bg-danger">${guild.data.nitro}ブースト</span>`:""}
                     </h5>
                 </p>
                 <p class="card-text">${escape(server.text)}</p>
