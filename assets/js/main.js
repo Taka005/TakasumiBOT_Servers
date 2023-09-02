@@ -39,7 +39,16 @@
         document.querySelector("#result").remove();
         
         if(serverInput.value.length > 0){
-            const filter = data.data.filter(server=>server.name.indexOf(serverInput.value) != -1);
+            let filter;
+            if(serverInput.value.match(/#[^\s#]+/g)[0]){
+                filter = data.data.filter(server=>{
+                    return server.text.match(/#[^\s#]+/g)
+                      .map(tag=>tag.trim())
+                      .find(tag=>tag.indexOf(serverInput.value.match(/#[^\s#]+/g)[0].trim()))
+                });
+            }else{
+                filter = data.data.filter(server=>server.name.indexOf(serverInput.value) != -1);
+            }
 
             serverForm.insertAdjacentHTML("beforeend",`<div id="result" class="form-text">${filter.length}件ヒットしました</div>`)
             document.querySelector(".serverList").insertAdjacentHTML("afterbegin",
