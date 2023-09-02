@@ -40,7 +40,7 @@
         
         if(serverInput.value.length > 0){
             let filter;
-            console.log(serverInput.value.match(/#[^\s#]+/g))
+            console.log(serverInput.value)
             if(serverInput.value.match(/#[^\s#]+/g)[0]){
                 filter = data.data.filter(server=>{
                     return server.text.match(/#[^\s#]+/g)
