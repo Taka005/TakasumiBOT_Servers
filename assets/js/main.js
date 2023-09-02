@@ -34,15 +34,13 @@
     const serverInput = document.getElementById("serverInput");
 
     serverForm.addEventListener("submit",async(event)=>{
-        if(!serverInput.value) return;
-        
         event.preventDefault();
         document.querySelector(".serverList").innerHTML = "";
         document.querySelector("#result").remove();
         
         if(serverInput.value.length > 0){
             let filter;
-            if(serverInput.value.match(/#[^\s#]+/g)[0]){
+            if(serverInput.value.match(/#[^\s#]+/g).length > 0){
                 filter = data.data.filter(server=>{
                     return server.text.match(/#[^\s#]+/g)
                       .map(tag=>tag.trim())
