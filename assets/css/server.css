@@ -4,11 +4,11 @@
     margin-right: 200px;
 }
 
-.card {
+.header {
     display: flex;
 }
 
-.card div {
+.header div {
     float: left; 
     margin: 10px;
 }
