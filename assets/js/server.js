@@ -51,7 +51,7 @@
 })();
 
 function tag(str){
-    return str.replace(/#[^\s#]+/g,"<h6>$&</h6>");
+    return str.replace(/#[^\s#]+/g,"<p class='tag'>$&</p>");
 }
 
 function escape(str){
