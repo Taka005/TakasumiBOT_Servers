@@ -31,6 +31,7 @@
     }else{
         ServerList(data.data);
     }
+    
     serverForm.addEventListener("submit",async(event)=>{
         event.preventDefault();
         
