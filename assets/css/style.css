@@ -19,9 +19,16 @@
 }
 
 .serverInfo {
+    display: flex;
     margin-top: 100px;
     margin-left: 200px;
     margin-right: 200px;
+}
+
+.serverInfo .icon,
+.serverInfo div {
+    flex: 1;
+    margin: 10px;
 }
 
 .icon {
