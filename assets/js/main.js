@@ -13,7 +13,7 @@
     const serverInput = document.getElementById("serverInput");
 
     const params = new URLSearchParams(window.location.search);
-    if(params.get("q").length > 0){
+    if(params.has("q")&&params.get("q").length > 0){
         serverInput.value = params.get("q");
         serverForm.submit();
     }else{
