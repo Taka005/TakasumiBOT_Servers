@@ -10,6 +10,7 @@
 .serverLink {
     position: relative;
 }
+
 .serverLink a {
     position: absolute;
     top: 0;
@@ -24,7 +25,7 @@
     margin-right: 200px;
 }
 
-.serverInfo div {
+.card div {
     float: left; 
     margin: 10px;
 }
