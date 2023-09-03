@@ -18,7 +18,7 @@
 
         serverForm.insertAdjacentHTML("beforeend",`<div id="result" class="form-text">${filter.length}件ヒットしました</div>`)
         ServerList(filter);
-    }else if(params.has("tag")||params.get("tag").length > 0){
+    }else if(params.has("tag")&&params.get("tag").length > 0){
         const filter = data.data.filter(server=>{
             if(!server.text.match(/#[^\s#]+/g)) return false;
             return server.text.match(/#[^\s#]+/g)
