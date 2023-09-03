@@ -11,7 +11,7 @@
     position: relative;
 }
 
-.serverLink a {
+.serverLink .Link {
     position: absolute;
     top: 0;
     left: 0;
@@ -19,8 +19,15 @@
     width: 100%;
 }
 
-.tag a {
-    display: block;
+.tag{
     font-weight: bold;
+}
+
+a {
     text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: black;
 }
