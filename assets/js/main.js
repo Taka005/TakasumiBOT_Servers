@@ -38,7 +38,7 @@
         event.preventDefault();
         
         document.querySelector(".serverList").innerHTML = "";
-        document.querySelector(".result").remove();
+        document.querySelectorAll(".result").forEach(result=>result.remove());
         
         if(serverInput.value.length > 0){
             let filter;
