@@ -9,6 +9,8 @@
 
     console.log(`${data.data.length}個のサーバーを取得しました`);
 
+    document.querySelector(".count").innerText = `${data.data.length}サーバーを掲載中`;
+
     const serverForm = document.getElementById("serverForm");
     const serverInput = document.getElementById("serverInput");
 
