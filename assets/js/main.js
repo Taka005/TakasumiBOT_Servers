@@ -16,7 +16,7 @@
     if(params.has("q")&&params.get("q").length > 0){
         const filter = data.data.filter(server=>server.name.indexOf(params.get("q")) != -1);
 
-        serverForm.insertAdjacentHTML("beforeend",`<div id="result" class="form-text">${filter.length}件ヒットしました</div>`)
+        serverForm.insertAdjacentHTML("beforeend",`<div class="form-text result">${filter.length}件ヒットしました</div>`)
         ServerList(filter);
     }else if(params.has("tag")&&params.get("tag").length > 0){
         const filter = data.data.filter(server=>{
@@ -26,7 +26,7 @@
               .find(tag=>tag.startsWith(`#${params.get("tag").trim()}`))
         });
 
-        serverForm.insertAdjacentHTML("beforeend",`<div id="result" class="form-text">${filter.length}件ヒットしました</div>`)
+        serverForm.insertAdjacentHTML("beforeend",`<div class="form-text result">${filter.length}件ヒットしました</div>`)
         ServerList(filter);
     }else{
         ServerList(data.data);
@@ -38,7 +38,7 @@
         event.preventDefault();
         
         document.querySelector(".serverList").innerHTML = "";
-        document.querySelector("#result").remove();
+        document.querySelector(".result").remove();
         
         if(serverInput.value.length > 0){
             let filter;
@@ -53,10 +53,10 @@
                 filter = data.data.filter(server=>server.name.indexOf(serverInput.value) != -1);
             }
 
-            serverForm.insertAdjacentHTML("beforeend",`<div id="result" class="form-text">${filter.length}件ヒットしました</div>`)
+            serverForm.insertAdjacentHTML("beforeend",`<div class="form-text result">${filter.length}件ヒットしました</div>`)
             ServerList(filter);            
         }else{
-            serverForm.insertAdjacentHTML("beforeend",`<div id="result" class="form-text"></div>`)
+            serverForm.insertAdjacentHTML("beforeend",`<div class="form-text result"></div>`)
             ServerList(data.data);
         }
         serverInput.value = "";
