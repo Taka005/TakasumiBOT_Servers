@@ -51,7 +51,9 @@
 })();
 
 function tag(str){
-    return str.replace(/#[^\s#]+/g,"<a class='tag' href='./?q=$&'>$&</a>");
+    return str.replace(/(#[^\s#]+)/g,(match,p1)=>{
+        return `<a class='tag' href='./?tag=${p1.replace("#","")}'>${p1}</a>`;
+    });
 }
 
 function escape(str){

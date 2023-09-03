@@ -14,18 +14,17 @@
 
     const params = new URLSearchParams(window.location.search);
     if(params.has("q")&&params.get("q").length > 0){
-        console.log(params.get("q"))
-        let filter;
-        if(params.get("q").match(/#[^\s#]+/)?.[0]){
-            filter = data.data.filter(server=>{
-                if(!server.text.match(/#[^\s#]+/g)) return false;
-                return server.text.match(/#[^\s#]+/g)
-                  .map(tag=>tag.trim())
-                  .find(tag=>tag.startsWith(params.get("q").match(/#[^\s#]+/)[0].trim()))
-            });
-        }else{
-            filter = data.data.filter(server=>server.name.indexOf(params.get("q")) != -1);
-        }
+        const filter = data.data.filter(server=>server.name.indexOf(params.get("q")) != -1);
+
+        serverForm.insertAdjacentHTML("beforeend",`<div id="result" class="form-text">${filter.length}件ヒットしました</div>`)
+        ServerList(filter);
+    }else if(params.has("tag")||params.get("tag").length > 0){
+        const filter = data.data.filter(server=>{
+            if(!server.text.match(/#[^\s#]+/g)) return false;
+            return server.text.match(/#[^\s#]+/g)
+              .map(tag=>tag.trim())
+              .find(tag=>tag.startsWith(`#${params.get("tag").trim()}`))
+        });
 
         serverForm.insertAdjacentHTML("beforeend",`<div id="result" class="form-text">${filter.length}件ヒットしました</div>`)
         ServerList(filter);
@@ -86,7 +85,9 @@ function ServerList(data){
 }
 
 function tag(str){
-    return str.replace(/#[^\s#]+/g,"<a class='tag' href='./?q=$&'>$&</a>");
+    return str.replace(/(#[^\s#]+)/g,(match,p1)=>{
+        return `<a class='tag' href='./?tag=${p1.replace("#","")}'>${p1}</a>`;
+    });
 }
 
 function time(ms){
