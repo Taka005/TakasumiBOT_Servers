@@ -12,6 +12,9 @@
     const serverForm = document.getElementById("serverForm");
     const serverInput = document.getElementById("serverInput");
 
+    document.querySelector(".serverList").innerHTML = "";
+    document.querySelector("#result").remove();
+
     const params = new URLSearchParams(window.location.search);
     if(params.has("q")&&params.get("q").length > 0){
         const filter = data.data.filter(server=>server.name.indexOf(params.get("q")) != -1);
