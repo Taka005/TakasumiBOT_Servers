@@ -14,6 +14,7 @@
 
     const params = new URLSearchParams(window.location.search);
     if(params.has("q")&&params.get("q").length > 0){
+        console.log(params.get("q"))
         let filter;
         if(params.get("q").match(/#[^\s#]+/)?.[0]){
             filter = data.data.filter(server=>{
