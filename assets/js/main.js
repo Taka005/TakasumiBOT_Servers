@@ -32,8 +32,6 @@
         ServerList(data.data);
     }
 
-    //window.history.pushState({},document.title,window.location.href.split("?")[0]);
-    
     serverForm.addEventListener("submit",async(event)=>{
         event.preventDefault();
         
