@@ -21,8 +21,6 @@
 
     console.log(`${guild.data.name}(${guild.data.id})を取得しました`);
 
-    const check = "987698915820335124" === server.id?`<span class="badge rounded-pill bg-success">公式</span>`:"";
-
     document.querySelector("title").innerText = guild.data.name;
     document.querySelector(".serverInfo").insertAdjacentHTML("afterbegin",`
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
@@ -36,11 +34,12 @@
                 <img src=${guild.data.iconURL||"https://cdn.discordapp.com/embed/avatars/0.png"} class="icon" width="150" height="150" alt="サーバーアイコン">         
             </div>
             <div class="card-body">
-                <h1 class="card-title">${escape(guild.data.name)}${check}</h1>
+                <h1 class="card-title">${escape(guild.data.name)}</h1>
                 <p class="card-text">
                     <h5>
                         <span class="badge rounded-pill bg-light text-dark">${guild.data.onlineCount}人がオンライン ${guild.data.memberCount}人</span>
                         ${guild.data.nitro !== 0 ? `<span class="badge rounded-pill bg-danger nitro">${guild.data.nitro}ブースト</span>`:""}
+                        ${"987698915820335124" === server.id?`<span class="badge rounded-pill bg-success">公式</span>`:""}
                     </h5>
                 </p>
                 <p class="card-text">${tag(escape(server.text))}</p>
