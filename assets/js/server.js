@@ -1,6 +1,5 @@
 (async function(){
     const params = new URLSearchParams(window.location.search);
-    if(!params.has("id")) return window.location = "./";
 
     const servers = await fetch("https://api.taka.cf/v1/server")
         .then(res=>res.json())
