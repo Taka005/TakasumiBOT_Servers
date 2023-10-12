@@ -28,7 +28,7 @@
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="./">サーバー一覧</a></li>
-                <li class="breadcrumb-item active">${escape(guild.data.name)}${check}</li>
+                <li class="breadcrumb-item active">${escape(guild.data.name)}</li>
             </ol>
         </nav>
         <div class="card text-center">
@@ -36,7 +36,7 @@
                 <img src=${guild.data.iconURL||"https://cdn.discordapp.com/embed/avatars/0.png"} class="icon" width="150" height="150" alt="サーバーアイコン">         
             </div>
             <div class="card-body">
-                <h1 class="card-title">${escape(guild.data.name)}</h1>
+                <h1 class="card-title">${escape(guild.data.name)}${check}</h1>
                 <p class="card-text">
                     <h5>
                         <span class="badge rounded-pill bg-light text-dark">${guild.data.onlineCount}人がオンライン ${guild.data.memberCount}人</span>
