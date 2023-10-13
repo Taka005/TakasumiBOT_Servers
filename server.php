@@ -19,10 +19,10 @@ if(!$data) return header("Location: ./");
         <link rel="icon" type="image/png" sizes="1024x1024" href="./assets/img/takasumibot.png">
 
         <head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/ fb# prefix属性: https://ogp.me/ns/ prefix属性#">
-        <meta property="og:url" content="https://servers.taka.cf/server/<? $data["id"] ?>" />
+        <meta property="og:url" content="https://servers.taka.cf/server/<?= $data["id"] ?>" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="<? $data['name'] ?>" />
-        <meta property="og:description" content="<? $data['text'] ?>" />
+        <meta property="og:title" content="<?= $data["name"] ?>" />
+        <meta property="og:description" content="<?= $data["text"] ?>" />
         <meta property="og:site_name" content="TakasumiBOT Servers" />
         <meta property="og:image" content="https://servers.taka.cf/assets/img/takasumibot.png" />    
 
