@@ -15,5 +15,5 @@ RewriteRule ^(.*)$ $1.html
 RewriteCond %{THE_REQUEST} \.(php|html)\ HTTP
 RewriteRule ^(.*)\.(php|html)$ /$1 [R=301]
 
-ErrorDocument 404 404.html
+ErrorDocument 404 /404.html
 </IfModule>
