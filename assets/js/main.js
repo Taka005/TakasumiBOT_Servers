@@ -70,6 +70,9 @@ function ServerList(data){
 
             return `<div class="col-sm-6 Server" id=${server.id}>
                 <div class="card text-center">
+                    <div>
+                        <img src=${server.icon} class="icon" width="100" height="100" alt="サーバーアイコン">         
+                    </div>
                     <div class="card-body">
                         <div class="serverLink">
                             <h5 class="card-title">${escape(server.name)} ${check}</h5>
