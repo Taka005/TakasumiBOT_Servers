@@ -1,6 +1,9 @@
 <?php
 $server = json_decode(file_get_contents("https://api.taka.cf/v1/server"),true);
-$data = $server["data"][array_search($_GET["id"],array_column($server["data"],"id"))];
+$data = array_values(array_filter($server["data"],function($s){
+    return $s["id"] === htmlspecialchars($_GET["id"]);
+}))[0];
+
 if(!$data) exit;
 ?>
 <!DOCTYPE html>
