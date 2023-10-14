@@ -10,7 +10,6 @@
     console.log(`${servers.data.length}個のサーバーを取得しました`);
 
     const server = servers.data.find(server=>server.id === params.get("id"));
-    if(!server) return window.location = "./";
 
     const guild = await fetch(`https://api.taka.cf/v1/discord/guild?id=${server.id}`)
         .then(res=>res.json())
@@ -25,7 +24,7 @@
     document.querySelector(".serverInfo").insertAdjacentHTML("afterbegin",`
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="./">サーバー一覧</a></li>
+                <li class="breadcrumb-item"><a href="/">サーバー一覧</a></li>
                 <li class="breadcrumb-item active">${escape(guild.data.name)}</li>
             </ol>
         </nav>
@@ -51,7 +50,7 @@
 
 function tag(str){
     return str.replace(/(#[^\s#]+)/g,(match,p1)=>{
-        return `<a class='tag' href='./?tag=${p1.replace("#","")}'>${p1}</a>`;
+        return `<a class='tag' href='/?tag=${p1.replace("#","")}'>${p1}</a>`;
     });
 }
 
