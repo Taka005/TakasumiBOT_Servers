@@ -78,7 +78,7 @@ function ServerList(data){
                             <h5 class="card-title">${escape(server.name)} ${check}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">- ${server.count}人 -</h6>
                             <p class="card-text">${tag(escape(server.text))}</p>
-                            <a class="Link" href="./server.html?id=${server.id}"></a>
+                            <a class="Link" href="/server/${server.id}"></a>
                         </div>
                         <a href="https://discord.gg/${server.code}" class="btn btn-outline-secondary" target="_blank">サーバーに参加する</a>
                         <p class="card-text"><small class="text-muted">${time(new Date() - new Date(server.time))}前</small></p>
