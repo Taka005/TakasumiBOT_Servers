@@ -69,7 +69,7 @@ function ServerList(data){
             const check = "987698915820335124" === server.id?`<span class="badge rounded-pill bg-success">公式</span>`:"";
 
             return `<div class="col-sm-6 Server" id=${server.id}>
-                <div class="card text-center">
+                <div class="card text-center h-100">
                     <div>
                         <img src=${server.icon} class="icon" width="100" height="100" alt="サーバーアイコン">         
                     </div>
