@@ -1,6 +1,4 @@
 (async function(){
-    const params = new URLSearchParams(window.location.search);
-
     const servers = await fetch("https://api.taka.cf/v1/server")
         .then(res=>res.json())
         .catch(error=>{
@@ -9,7 +7,8 @@
 
     console.log(`${servers.data.length}個のサーバーを取得しました`);
 
-    const server = servers.data.find(server=>server.id === params.get("id"));
+    const server = servers.data.find(server=>server.id === window.location.href.match(/\/server\/(\d+)/)[1]);
+    if(!server) return window.location = "../";
 
     const guild = await fetch(`https://api.taka.cf/v1/discord/guild?id=${server.id}`)
         .then(res=>res.json())

@@ -1,7 +1,7 @@
 <?php
 $server = json_decode(file_get_contents("https://api.taka.cf/v1/server"),true);
 $data = $server["data"][array_search($_GET["id"],array_column($server["data"],"id"))];
-if(!$data) return header("Location: /");
+if(!$data) exit;
 ?>
 <!DOCTYPE html>
 <html lang="ja">
