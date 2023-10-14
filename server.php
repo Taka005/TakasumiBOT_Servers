@@ -24,7 +24,7 @@ if(!$data) return header("Location: ./");
         <meta property="og:title" content="<?= $data["name"] ?>" />
         <meta property="og:description" content="<?= $data["text"] ?>" />
         <meta property="og:site_name" content="TakasumiBOT Servers" />
-        <meta property="og:image" content="https://servers.taka.cf/assets/img/takasumibot.png" />    
+        <meta property="og:image" content="<?= $data["icon"] ?>" />    
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="./assets/css/server.css">
