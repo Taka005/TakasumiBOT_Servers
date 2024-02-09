@@ -1,5 +1,5 @@
 (async function(){
-    const servers = await fetch("https://api.taka.cf/v1/server")
+    const servers = await fetch("https://api.takasumibot.com/v1/server")
         .then(res=>res.json())
         .catch(error=>{
             console.log(error);
@@ -10,7 +10,7 @@
     const server = servers.data.find(server=>server.id === window.location.href.match(/\/server\/(\d+)/)[1]);
     if(!server) return window.location = "../";
 
-    const guild = await fetch(`https://api.taka.cf/v1/discord/guild?id=${server.id}`)
+    const guild = await fetch(`https://api.takasumibot.com/v1/discord/guild?id=${server.id}`)
         .then(res=>res.json())
         .catch(error=>{
             console.log(error);
@@ -28,7 +28,7 @@
         </nav>
         <div class="card text-center">
             <div>
-                <img src=${guild.data.iconURL||"https://cdn.discordapp.com/embed/avatars/0.png"} class="icon" width="150" height="150" alt="サーバーアイコン">         
+                <img src=${guild.data.iconURL||"https://cdn.discordapp.com/embed/avatars/0.png"} class="icon" width="150" height="150" alt="サーバーアイコン">
             </div>
             <div class="card-body">
                 <h1 class="card-title">${escape(guild.data.name)}</h1>
@@ -70,7 +70,7 @@ function time(ms){
     const h = Math.floor((t - d * 86400) / 3600);
     const m = Math.floor((t - d * 86400 - h * 3600) / 60);
     const s = Math.floor(t - d * 86400 - h * 3600 - m * 60);
-  
+
     if(d === 0){
         if(h === 0){
             if(m === 0){

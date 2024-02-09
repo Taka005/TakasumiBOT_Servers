@@ -1,5 +1,5 @@
 <?php
-$server = json_decode(file_get_contents("https://api.taka.cf/v1/server"),true);
+$server = json_decode(file_get_contents("https://api.takasumibot.com/v1/server"),true);
 $data = array_values(array_filter($server["data"],function($s){
     return $s["id"] === htmlspecialchars($_GET["id"]);
 }))[0];
@@ -27,7 +27,7 @@ if(!$data) exit;
         <meta property="og:title" content="<?= $data["name"] ?>" />
         <meta property="og:description" content="<?= $data["text"] ?>" />
         <meta property="og:site_name" content="TakasumiBOT Servers" />
-        <meta property="og:image" content="<?= $data["icon"] ?>" />    
+        <meta property="og:image" content="<?= $data["icon"] ?>" />
         <meta name="twitter:card" content="summary_large_image">
 
         <meta name="description" content="<?= $data["text"] ?>">

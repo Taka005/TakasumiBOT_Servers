@@ -1,5 +1,5 @@
 (async function(){
-    const data = await fetch("https://api.taka.cf/v1/server")
+    const data = await fetch("https://api.takasumibot.com/v1/server")
         .then(res=>res.json())
         .catch(error=>{
             console.log(error);
@@ -36,10 +36,10 @@
 
     serverForm.addEventListener("submit",async(event)=>{
         event.preventDefault();
-        
+
         document.querySelector(".serverList").innerHTML = "";
         document.querySelectorAll(".result").forEach(result=>result.remove());
-        
+
         if(serverInput.value.length > 0){
             let filter;
             if(serverInput.value.match(/#[^\s#]+/)?.[0]){
@@ -54,7 +54,7 @@
             }
 
             serverForm.insertAdjacentHTML("beforeend",`<div class="form-text result">${filter.length}件ヒットしました</div>`)
-            ServerList(filter);            
+            ServerList(filter);
         }else{
             serverForm.insertAdjacentHTML("beforeend",`<div class="form-text result"></div>`)
             ServerList(data.data);
@@ -71,7 +71,7 @@ function ServerList(data){
             return `<div class="col-sm-6 Server" id=${server.id}>
                 <div class="card text-center h-100">
                     <div>
-                        <img src=${server.icon} class="icon" width="100" height="100" alt="サーバーアイコン">         
+                        <img src=${server.icon} class="icon" width="100" height="100" alt="サーバーアイコン">
                     </div>
                     <div class="card-body">
                         <div class="serverLink">
@@ -99,7 +99,7 @@ function time(ms){
     const h = Math.floor((t - d * 86400) / 3600);
     const m = Math.floor((t - d * 86400 - h * 3600) / 60);
     const s = Math.floor(t - d * 86400 - h * 3600 - m * 60);
-  
+
     if(d === 0){
         if(h === 0){
             if(m === 0){
